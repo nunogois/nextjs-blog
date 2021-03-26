@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { GetStaticProps } from 'next'
 
 import Layout, { siteTitle } from '../components/layout'
 import Date from '../components/date'
@@ -10,7 +11,7 @@ import utilStyles from '../styles/utils.module.css'
 
 import { getSortedPostsData } from '../lib/posts'
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()
   return {
     props: {
@@ -31,6 +32,9 @@ export default function Home({ allPostsData }) {
         </p>
         <p>
           Check out my website: <a href="https://www.nunogois.com">www.nunogois.com</a>
+        </p>
+        <p>
+          Check out this project on <a href="https://github.com/nunogois/nextjs-blog">GitHub</a>
         </p>
         <p>
           (This is a sample website - you’ll be building a site like this on{' '}
